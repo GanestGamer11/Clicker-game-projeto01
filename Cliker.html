@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="author" content="Ganest">
     <link rel="stylesheet" type="text/css" href="Css.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
     <title>Cliker</title>
 
@@ -131,62 +132,71 @@
 
     //informações gerais--------------------------------------------------------------
     function visible(id){
-        if(document.getElementById(id).style.display == 'block'){
+        if(document.getElementById(id).style.display == 'inline-block'){
             document.getElementById(id).style.display = 'none'
         }else{
-            document.getElementById(id).style.display = 'block'
+            document.getElementById(id).style.display = 'inline-block'
         }
-        }
+    }
+
+    //Salvar e carregar jogo---------------------------------------------------------
+    function save() {
+        var file = new File(["Calma lá campeão, isso ainda n funciona"], "Leia.txt", {type: "text/plain;charset=utf8"});//conteudo, titulo + formato, type text
+        saveAs(file);
+    }
 
     setInterval(timer, 1000);//executa o meteodo timer a cada 1000 centesimos
 </script>
 
 </head>
 <body>
-    <div class="corpo">
-        <!-- Area dos cliques e produção atual----------------------------------</-->
-        <div class="left">
-            <h1>!!!Só Clica!!!</h1>
+    <div class="tela">
+        <div class="corpo">
+            <!-- Area dos cliques e produção atual----------------------------------</-->
+            <div class="left_corpo">
+                <h1>!!!Só Clica!!!</h1>
 
-            <center>
-            <h2 id="var_atual">Valor atual: 0</h2>
-            <h3 id="prod_Atual">Produção atual: 0</h3>
-            <div class="clica">
-            <img src="icon.png" id="bot" class="botao" onclick="Cliques(); effect()">
+                <center>
+                <h2 id="var_atual">Valor atual: 0</h2>
+                <h3 id="prod_Atual">Produção atual: 0</h3>
+                <div class="clica">
+                <img src="icon.png" id="bot" class="botao" onclick="Cliques(); effect()">
+                </div>
+                <button id="save" class="save" onclick="save()">Save</button> <button id="load" class="save" onclick="load()">Load</button>
+                </center>
+
             </div>
-            <button id="save" class="save" onclick="save()">Save</button> <button id="load" class="save" onclick="load()">Load</button>
-            </center>
 
+             <!-- Area das construções e upgrades de cursor----------------------------------</-->
+            <div class="right_corpo">
+                <h1>Upgrades</h1>
+                <center>
+                    <button id="Upg_1" class="UPG" onclick="Upg1()">Upgrade legal</button>
+                    <a id="costUpg_1">Valor: 12</a><a >Gera 0,3 a cada segundo</a> <a id="Quant_Upg1">Quantidade: </a>
+
+                    <button id="Upg_2" class="UPG" onclick="Upg2()">Upgrade foda</button>
+                    <a id="costUpg_2">Valor: 30</a><a >Gera 1 a cada segundo</a> <a id="Quant_Upg2">Quantidade: </a>
+
+                    <button id="Upg_3" class="UPG" onclick="Upg3()">Upgrade Lindo</button>
+                    <a id="costUpg_3">Valor: 75</a><a >Gera 5 a cada segundo</a> <a id="Quant_Upg3">Quantidade: </a>
+
+                    <button id="UpgC_1" class="UPGC" onclick="UpgC_1()">Cursor+</button>
+                    <a>Aumenta o cursor em 1</a>
+                </center>
+            </div>
         </div>
-
-         <!-- Area das construções e upgrades de cursor----------------------------------</-->
-        <div class="right">
-            <h1>Upgrades</h1>
-            <center>
-                <button id="Upg_1" class="UPG" onclick="Upg1()">Upgrade legal</button>
-                <a id="costUpg_1">Valor: 12</a><a >Gera 0,3 a cada segundo</a> <a id="Quant_Upg1">Quantidade: </a>
-
-                <button id="Upg_2" class="UPG" onclick="Upg2()">Upgrade foda</button>
-                <a id="costUpg_2">Valor: 30</a><a >Gera 1 a cada segundo</a> <a id="Quant_Upg2">Quantidade: </a>
-
-                <button id="Upg_3" class="UPG" onclick="Upg3()">Upgrade Lindo</button>
-                <a id="costUpg_3">Valor: 75</a><a >Gera 5 a cada segundo</a> <a id="Quant_Upg3">Quantidade: </a>
-
-                <button id="UpgC_1" class="UPGC" onclick="UpgC_1()">Cursor+</button>
-                <a>Aumenta o cursor em 1</a>
-            </center>
+        <!--Informações gerais ----------------------------------------- </-->
+        <div class="master_inf">
+            <button id="informacoes" onclick="visible('corpo_inf')">i</button>
+            <div id="corpo_inf">
+                <div class="top_inf">
+                  <p id="total_cliques" class="inf_gerais">Total de cliques: </p>
+                  <p id="prod_total" class="inf_gerais">Total produzido: </p>
+                </div>
+                <p id="version_inf" class="inf_gerais inf_version">Versão 1.3.0.8</p><!--versao: grandes att, pequenas att, correções de bug na att, mudança de codigo na att </-->
+            </div>
         </div>
-    <!--Informações gerais ----------------------------------------- </-->
     </div>
-    <button id="informacoes" onclick="visible('corpo_inf')">i</button>
-    <div id="corpo_inf">
-        <div class="top_inf">
-          <p id="total_cliques" class="inf_gerais">Total de cliques: </p>
-          <p id="prod_total" class="inf_gerais">Total produzido: </p>
-        </div>
-        <p id="version_inf" class="inf_gerais inf_version">Versão 1.2.2.3</p><!--versao: grandes att, pequenas att, correções de bug na att, mudança de codigo na att </-->
-    </div>
-
 
 </body>
 </html>
