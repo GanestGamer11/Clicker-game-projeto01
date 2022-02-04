@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>teste</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script><!-- Link filesaver -->
+	<script type="text/javascript" src="FileSaver.js"></script><!-- Arquivo filesaver para usar -->
+
+	<script type="text/javascript">//Função de salvar usando o filesaver
+		//crete a file
+		function save() {
+			var file = new File(["Teste"], "demo.txt", {type: "text/plain;charset=utf8"});
+		saveAs(file);
+		}
+
+		function save1() {//salvar usando o blob
+			let titulo = document.getElementById('titulo').innerHTML;//quarda o titulo dentro de um let
+			let texto = document.getElementById('texto').innerHTML;// guarda o texto dentro de um let
+
+			let blob = new Blob([texto], {type: "text/plain;charset=utf-8"});//pega todo o texto e coloca dentro de um blob
+
+			saveAs(blob, titulo +".txt");//salva o texto com o titulo.txt
+		}
+		
+	</script>
+</head>
+<body>
+	<button onclick="save()">Salvar</button><!-- Salvando usando o filesaver -->
+
+	<h4 id="titulo">Nome do arquivo</h4>
+	<h5 id="texto">Texto que sera salvo</h5>
+	<button onclick="save1()">Salvar</button><!-- Salvando usando o blob -->	
+
+</body>
+</html>
