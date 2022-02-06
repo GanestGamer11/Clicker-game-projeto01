@@ -7,7 +7,7 @@ html{
 	background: rgb(8,186,115);
 	background: linear-gradient(180deg, rgba(8,186,115,0.9500175070028011) 7%, rgba(6,128,79,0.7987570028011204) 34%, rgba(172,172,172,1) 57%, rgba(125,125,125,0.9332107843137255) 92%);
 }
-.tela{
+.tela{/*Tela geral */
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -20,7 +20,7 @@ html{
 	color: white;
 
 }
-.corpo{
+.corpo{/*Corpo da div de cliques e upg */
 	margin: 20px;
 
 	width: 900px;
@@ -30,23 +30,27 @@ html{
 	box-shadow: inset 0 0 1em black;
 	display: inline-block;
 }
-.left_corpo{
+.left_corpo{/*Area de cliques e save */
 	width: 45%;
 	height: 100%;
 
 	display: inline-block;
 	box-shadow: inset 0 0 1em black;
 }
-.left_corpo h1{
+.left_corpo h1{/*Texto de cima */
 	font-size: 20pt;
 	margin-top: 10px;
 	text-align: center;
 }
-.corpo .left_corpo h3{
+.corpo .left_corpo h3{/*Produção atual */
 	text-align: center;
 	font-size: 10pt;
 }
-.clica{
+#var_atual{/*Valor atual de produção */
+	margin-top: 10px;
+	font-size: 12pt;
+}
+.clica{/*Div da imagem clicavel */
 	margin-top: 20px;
 	margin-bottom: 40px;
 	
@@ -55,14 +59,11 @@ html{
 
 	display: block;
 }
-.botao{
+.botao{/*Imagem clicavel */
 	width: 80%;
 }
-#var_atual{
-	margin-top: 10px;
-	font-size: 12pt;
-}
-.save{
+
+.save{/*Botão de save e load */
 	width: 30%;
 	height: 30px;
 	display: inline-block;
@@ -71,7 +72,7 @@ html{
 }
 
 
-.right_corpo{
+.right_corpo{/*div da area de upgs em geral */
 	width: 50%;
 	height: 100%;
 	display: inline-block;
@@ -79,32 +80,33 @@ html{
 
 	box-shadow: inset 0 0 1em black;
 }
-.right_corpo h1{
+.right_corpo h1{/*Upgrades */
 	font-size: 20pt;
 	text-align: center;
 	margin-top: 10px;
 }
-.UPG{
+.UPG{/*Classe dos botoes de upg */
 	width: 60%;
 	height: 35px;
 	margin-top: 30px;
 	display: block;
 }
-.UPGC{
+.UPG:hover{
+	background-color: lightgray;
+}
+.right_corpo center a{/*Informações de upg */
+	font-size: 8pt;
+	display: block;
+}
+.UPGC{/*Classe dos upg de cursor */
 	margin: 10px 0 0 0 ;
 	width: 60px;
 	height: 25px;
 }
-#Upg_1:hover{
-	background-color: gray;
-}
-.right_corpo center a{
-	font-size: 8pt;
-	display: block;
-}
 
 
-.master_inf{
+
+.master_inf{/*Div da area de informações */
 	display: inline-block;
 	width: 220px;
 	height: 500px;
@@ -112,7 +114,7 @@ html{
 	float: right;
 	margin: 20px 20px 0 10px;
 }
-#informacoes{
+#informacoes{/*Botao de informações */
 	font-size: 12pt;
 	font-weight: bold;
 
@@ -129,7 +131,7 @@ html{
 #informacoes:hover{
 	background-color: gray;
 }
-#corpo_inf{
+#corpo_inf{/*Div da area de informações gerais */
 	background-color: #EEAD2D;
 	box-shadow: inset 0 0 1em black;
 	margin-top: 17px;
@@ -141,17 +143,17 @@ html{
 	display: none;
 
 }
-.top_inf{
+.top_inf{/*Parte superior da area de informações */
 	width: 200px;
 	height: 345px;
 	display: block;
 }
-.inf_gerais{
+.inf_gerais{/*Texto das informações gerais */
 	font-size: 12pt;
 	margin-top: 15px;
 	margin-left: 12px;
 }
-.inf_version{
+.inf_version{/*Informações inferior da versão do jogo */
 	font-size: 8pt;
 	font-weight: lighter;
 	margin: 20px 0 0 5px;

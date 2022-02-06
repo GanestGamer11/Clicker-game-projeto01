@@ -140,12 +140,73 @@
     }
 
     //Salvar e carregar jogo---------------------------------------------------------
-    function save() {
-        var file = new File(["Calma lá campeão, isso ainda n funciona"], "Leia.txt", {type: "text/plain;charset=utf8"});//conteudo, titulo + formato, type text
+    /*function save() {
+        var file = new File(["O JOGO"], "Leia.txt", {type: "text/plain;charset=utf8"});//conteudo, titulo + formato, type text
         saveAs(file);
+    }*/
+    function save() {//save usando o local storage
+        localStorage.setItem("prod_Atual", clicks);
+        localStorage.setItem("total_cliques", totClicks);
+        localStorage.setItem("produzido", produzido);
+        localStorage.setItem("prod_Atual1", prodAtual1);
+
+        localStorage.setItem("cnst_1", autoclick1);
+        localStorage.setItem("quantUpg1", quantUpg1);
+
+        localStorage.setItem("cnst_2", autoclick2);
+        localStorage.setItem("quantUpg2", quantUpg2);
+
+        localStorage.setItem("cnst_3", autoclick3);
+        localStorage.setItem("quantUpg3", quantUpg3);
+
+        alert("Jogo Salvo!!!")
     }
 
-    setInterval(timer, 1000);//executa o meteodo timer a cada 1000 centesimos
+    function load(){//load usando o local storage
+        prod = localStorage.getItem("prod_Atual");
+        prod = parseFloat(prod);
+        totc = localStorage.getItem("total_cliques");
+        totc = parseInt(totc);
+        prodz = localStorage.getItem("produzido");
+        prodz = parseFloat(prodz);
+        prodz1 = localStorage.getItem("prod_Atual1");
+        prodz1 = parseFloat(prodz1);
+
+        constr1 = localStorage.getItem("cnst_1");
+        constr1 = parseFloat(constr1);
+        quant1 = localStorage.getItem("quantUpg1");
+        quant1 = parseInt(quant1);
+
+        constr2 = localStorage.getItem("cnst_2");
+        constr2 = parseInt(constr2);
+        quant2 = localStorage.getItem("quantUpg2");
+        quant2 = parseInt(quant2);
+
+        constr3 = localStorage.getItem("cnst_3");
+        constr3 = parseInt(constr3);
+        quant3 = localStorage.getItem("quantUpg3");
+        quant3 = parseInt(quant3);
+
+        clicks = prod;
+        produzido = prod;
+        prodAtual1 = prodz1;
+        totClicks = totc;
+
+        autoclick1 = constr1;
+        quantUpg1 = quant1;
+
+        autoclick2 = constr2;
+        quantUpg2 = quant2;
+
+        autoclick3 = constr3;
+        quantUpg3 = quant3;
+
+        updateInf();
+        timer();
+        
+    }
+
+    setInterval(timer, 1000);//executa o meteodo timer a cada 1000 centesimos(1 segundo)
 </script>
 
 </head>
@@ -193,7 +254,7 @@
                   <p id="total_cliques" class="inf_gerais">Total de cliques: </p>
                   <p id="prod_total" class="inf_gerais">Total produzido: </p>
                 </div>
-                <p id="version_inf" class="inf_gerais inf_version">Versão 1.3.0.8</p><!--versao: grandes att, pequenas att, correções de bug na att, mudança de codigo na att </-->
+                <p id="version_inf" class="inf_gerais inf_version">Versão 1.4.0.10</p><!--versao: grandes att, pequenas att, correções de bug na att, mudança de codigo na att </-->
             </div>
         </div>
     </div>
