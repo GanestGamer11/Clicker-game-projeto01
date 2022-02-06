@@ -85,18 +85,49 @@ html{
 	text-align: center;
 	margin-top: 10px;
 }
+.upg_store{/*Div dos upg de cursor e construção */
+	height: 15%;
+	width: 100%;
+	
+	margin: 25px 0px 45px 0px;
+	box-shadow: inset 0 0 1em black;
+}
+.store{/*Div da area de compra de construções */
+	width: 100%;
+	height: 60%;
+	
+	overflow: hidden;
+	overflow-y: scroll;
+	box-shadow: inset 0 0 1em black;
+
+}
 .UPG{/*Classe dos botoes de upg */
-	width: 60%;
-	height: 35px;
-	margin-top: 30px;
+	width: 90%;
+	height: 50px;
+	margin-top: 20px;
+	margin-left: 20px;
 	display: block;
+	border: 1px solid gray;
+	background-color: white;
+	box-shadow: inset 0 0 1em gray;
+}
+.UPG a{
+	display: none;
+	font-size: 12pt;
+	color: black;
+	margin: 16px 35px 0 10px;
+}
+.UPG:hover a{
+	display: inline-block;
+}
+.UPG h1{
+	color: black;
+}
+.UPG:hover h1{
+	display: none;
 }
 .UPG:hover{
 	background-color: lightgray;
-}
-.right_corpo center a{/*Informações de upg */
-	font-size: 8pt;
-	display: block;
 }
 .UPGC{/*Classe dos upg de cursor */
 	margin: 10px 0 0 0 ;

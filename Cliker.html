@@ -46,9 +46,9 @@
 
     }
     function Upg(){//atualiza os valores de upgrades e quantidade dos mesmos
-        document.getElementById("Quant_Upg1").innerHTML = "Quantidade: "+ quantUpg1;//define a quantidade de upgrades do 1 UPG
-        document.getElementById("Quant_Upg2").innerHTML = "Quantidade: "+ quantUpg2;//define a quantidade de upgrades do 2 UPG
-        document.getElementById("Quant_Upg3").innerHTML = "Quantidade: "+ quantUpg3;//define a quantidade de upgrades do 2 UPG
+        document.getElementById("Quant_Upg1").innerHTML = quantUpg1;//define a quantidade de upgrades do 1 UPG
+        document.getElementById("Quant_Upg2").innerHTML = quantUpg2;//define a quantidade de upgrades do 2 UPG
+        document.getElementById("Quant_Upg3").innerHTML = quantUpg3;//define a quantidade de upgrades do 2 UPG
         
         document.getElementById("costUpg_1").innerHTML ="Valor: "+ Math.round((preco1 * (1.5**quantUpg1)));//mostra o valor do UPG1
         document.getElementById("costUpg_2").innerHTML ="Valor: "+ Math.round((preco2 * (1.5**quantUpg2)));//mostra o valor do UPG2
@@ -74,7 +74,7 @@
         prodAtual = prodAtual1.toFixed(2); 
 
         clicks = clicks + autoclick1+autoclick2+autoclick3;
-        produzido = produzido + prodAtual1;
+        produzido = produzido+ autoclick1 + autoclick2+autoclick3;
         update();
         updateInf();
     }
@@ -148,7 +148,6 @@
         localStorage.setItem("prod_Atual", clicks);
         localStorage.setItem("total_cliques", totClicks);
         localStorage.setItem("produzido", produzido);
-        localStorage.setItem("prod_Atual1", prodAtual1);
 
         localStorage.setItem("cnst_1", autoclick1);
         localStorage.setItem("quantUpg1", quantUpg1);
@@ -169,8 +168,6 @@
         totc = parseInt(totc);
         prodz = localStorage.getItem("produzido");
         prodz = parseFloat(prodz);
-        prodz1 = localStorage.getItem("prod_Atual1");
-        prodz1 = parseFloat(prodz1);
 
         constr1 = localStorage.getItem("cnst_1");
         constr1 = parseFloat(constr1);
@@ -188,8 +185,7 @@
         quant3 = parseInt(quant3);
 
         clicks = prod;
-        produzido = prod;
-        prodAtual1 = prodz1;
+        produzido = prodz;
         totClicks = totc;
 
         autoclick1 = constr1;
@@ -231,19 +227,28 @@
              <!-- Area das construções e upgrades de cursor----------------------------------</-->
             <div class="right_corpo">
                 <h1>Upgrades</h1>
-                <center>
-                    <button id="Upg_1" class="UPG" onclick="Upg1()">Upgrade legal</button>
-                    <a id="costUpg_1">Valor: 12</a><a >Gera 0,3 a cada segundo</a> <a id="Quant_Upg1">Quantidade: </a>
-
-                    <button id="Upg_2" class="UPG" onclick="Upg2()">Upgrade foda</button>
-                    <a id="costUpg_2">Valor: 30</a><a >Gera 1 a cada segundo</a> <a id="Quant_Upg2">Quantidade: </a>
-
-                    <button id="Upg_3" class="UPG" onclick="Upg3()">Upgrade Lindo</button>
-                    <a id="costUpg_3">Valor: 75</a><a >Gera 5 a cada segundo</a> <a id="Quant_Upg3">Quantidade: </a>
-
+                <div class="upg_store">
                     <button id="UpgC_1" class="UPGC" onclick="UpgC_1()">Cursor+</button>
-                    <a>Aumenta o cursor em 1</a>
-                </center>
+                        <a>Aumenta o cursor em 1</a>
+                </div>
+                <div class="store">
+                    
+                        <div id="Upg_1" class="UPG" onclick="Upg1()">
+                            <h1 class="name_const">Upgrade legal</h1>
+                            <a id="costUpg_1">Valor: 12</a><a>Gera 0,3 a cada segundo</a><a id="Quant_Upg1">0</a>
+                        </div>
+
+                        <div id="Upg_2" class="UPG" onclick="Upg2()">
+                            <h1>Upgrade foda</h1>
+                            <a id="costUpg_2">Valor: 30</a><a >Gera 1 a cada segundo</a> <a id="Quant_Upg2">0</a>
+                        </div>
+
+                        <div id="Upg_3" class="UPG" onclick="Upg3()">
+                            <h1>Upgrade Lindo</h1>
+                            <a id="costUpg_3">Valor: 75</a><a >Gera 5 a cada segundo</a> <a id="Quant_Upg3">0</a>
+                        </div>
+                    
+                </div>
             </div>
         </div>
         <!--Informações gerais ----------------------------------------- </-->
@@ -254,7 +259,7 @@
                   <p id="total_cliques" class="inf_gerais">Total de cliques: </p>
                   <p id="prod_total" class="inf_gerais">Total produzido: </p>
                 </div>
-                <p id="version_inf" class="inf_gerais inf_version">Versão 1.4.0.10</p><!--versao: grandes att, pequenas att, correções de bug na att, mudança de codigo na att </-->
+                <p id="version_inf" class="inf_gerais inf_version">Versão 1.7.2.4</p><!--versao: grandes att, pequenas att, correções de bug na att, mudança de codigo na att </-->
             </div>
         </div>
     </div>
